@@ -27,3 +27,4 @@ out_archives/
 out_ipa/
 test_primary_phone.log
 test_primary_pad.log
+test_output/
