@@ -21,7 +21,7 @@ platform :ios do
     run_tests(
         workspace: "UnitTests.xcworkspace",
         scheme: "Calc (iOS)",
-        devices: ["iPhone XS", "iPad (6th generation)"],
+        devices: ["iPhone 11", "iPad Pro (11-inch)"],
         disable_concurrent_testing: true,
         configuration: 'Debug'
     )

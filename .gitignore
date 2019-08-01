@@ -23,8 +23,10 @@ DerivedData/
 !default.perspectivev3
 # Pods/
 Pods/Google-Mobile-Ads-SDK/
-out_archives/
-out_ipa/
 test_primary_phone.log
 test_primary_pad.log
 test_output/
+
+*.xcarchive
+*.xcarchive.zip
+upload_release_response.json

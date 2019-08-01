@@ -1,0 +1,24 @@
+name: iOS CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: macOS-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run tests
+      run: |
+        cd UnitTestingAppsandFrameworks
+        fastlane tests_kit
+        fastlane tests
+    - name: Archive without signing
+      run: |
+        cd UnitTestingAppsandFrameworks
+        xcodebuild -workspace UnitTests.xcworkspace -scheme "Calc (iOS)" -configuration Debug -sdk iphoneos clean archive CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED="NO" CODE_SIGN_ENTITLEMENTS="" CODE_SIGNING_ALLOWED="NO" -archivePath .
+    - name: Uplolad archive to relases
+      run: .github/workflows/upload_releases.sh '1.0.0'
+      env:
+        TOKEN: ${{ secrets.UPLOAD_TOKEN }}
